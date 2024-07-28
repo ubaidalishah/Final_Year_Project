@@ -1,0 +1,93 @@
+{% extends 'base.html' %} {% block title %} About {%
+endblock%} {%block content%}
+<main class="about-section-1st">
+  <div>
+    <span class="main-heading"> About Us </span>
+  </div>
+  <div>
+    <p class="para">
+      Welcome to Muscle Monitor At Muscle Monitor, we are revolutionizing the
+      way you exercise by integrating cutting-edge Internet of Things (IoT)
+      technology to provide real-time feedback on muscle activity and posture.
+      Our focus is on enhancing the safety and efficiency of your workouts,
+      specifically targeting the bicep and tricep muscles.
+    </p>
+  </div>
+</main>
+<main class="about-section-2nd">
+  <div class="para-box-0">
+    <p class="para">
+      <span class="span-heading">The Problem We Solve:</span>
+      Maintaining proper posture and maximizing muscle activation during
+      exercises can be challenging without professional guidance. Incorrect
+      techniques not only reduce workout efficiency but also increase the risk
+      of injury. Muscle Monitor addresses these issues by providing instant,
+      data-driven feedback on your muscle activity and posture, ensuring you get
+      the most out of every workout session.
+    </p>
+  </div>
+  <div class="img-box1">
+    <img
+      class="problem-pic"
+      src="{{url_for('static',filename='/figures/problem.webp')}}"
+      alt=""
+    />
+  </div>
+</main>
+<main class="about-section-3rd">
+  <div class="para-box-1">
+    <p class="para">
+      <span class="span-heading">How it Works:</span>
+      Our system uses surface electromyography sensors attached to your biceps
+      and triceps. These sensors measure the electrical activity of your
+      muscles, providing real-time data on their engagement during exercises.
+    </p>
+  </div>
+  <div class="img-box2">
+    <img
+      class="how-work-pic"
+      src="{{url_for('static',filename='/figures/how-work.jpg')}}"
+      alt=""
+    />
+  </div>
+</main>
+<main class="about-section-4th">
+  <div class="para-box-2">
+    <p class="para">
+      <span class="span-heading">Our Mission:</span>
+      Our mission is to empower fitness enthusiasts and professionals with
+      precise, actionable insights into their workout routines. By leveraging
+      advanced EMG sensors and intuitive web applications, we aim to help you
+      achieve your fitness goals safely and effectively, whether you're working
+      out at home or in the gym.
+    </p>
+  </div>
+  <div class="img-box3">
+    <img
+      class="our-mission-pic"
+      src="{{url_for('static',filename='/figures/mission.jpg')}}"
+      alt=""
+    />
+  </div>
+</main>
+<main class="about-section-5th">
+  <div class="para-box-3">
+    <p class="para">
+      <span class="span-heading">Our Vision:</span>
+      We envision a future where every fitness enthusiast, regardless of their
+      location, can access advanced technology to enhance their workout
+      routines. By providing accurate, real-time feedback, we aim to minimize
+      injuries and maximize the effectiveness of every exercise, helping you
+      achieve your fitness goals efficiently and safely.
+    </p>
+  </div>
+  <div class="img-box4">
+    <img
+      class="our-vision-pic"
+      src="{{url_for('static',filename='/figures/vision.jpg')}}"
+      alt=""
+    />
+  </div>
+</main>
+
+{%endblock%}

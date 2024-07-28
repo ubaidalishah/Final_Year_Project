@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %} Registration {% endblock %}
+{% block content %}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up and Sign In Forms</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}" />
+</head>
+<div class="form-box" id="signup-box">
+  <h2 class="login-h2">Sign Up</h2>
+  <form action="{{ url_for('signup') }}" method="POST">
+    <input type="text" name="name" placeholder="Full Name" required />
+    <input type="number" name="age" placeholder="Age" required />
+    <input type="email" name="email" placeholder="Email" required />
+    <input type="password" name="password" placeholder="Password" required />
+    <button type="submit">Sign Up</button>
+  </form>
+  <p class="login-p">Already have an account? <span class="login-span" onclick="showLoginForm()">Login</span></p>
+</div>
+<div class="form-box" id="signin-box" style="display: none">
+  <h2 class="login-h2">Sign In</h2>
+  <form action="{{ url_for('login') }}" method="POST">
+    <input type="email" name="email" placeholder="Email" required />
+    <input type="password" name="password" placeholder="Password" required />
+    <button type="submit">Sign In</button>
+  </form>
+  <p class="login-p">Don't have an account? <span class="login-span" onclick="showSignUpForm()">Sign Up</span></p>
+
+</div>
+<script>
+  function showLoginForm() {
+    document.getElementById("signup-box").style.display = "none";
+    document.getElementById("signin-box").style.display = "flex";
+  }
+  function showSignUpForm() {
+    document.getElementById("signup-box").style.display = "flex";
+    document.getElementById("signin-box").style.display = "none";
+  }
+
+  // Check if the query parameter 'show_login' is present and set to 'true'
+  window.onload = function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const showLogin = urlParams.get('show_login');
+    if (showLogin === 'true') {
+      showLoginForm();
+    }
+  };
+</script>
+{% endblock %}

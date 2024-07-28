@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% block title %} Exercises {%
+endblock%} {%block content%}
+
+<main class="home-content1">
+  <div class="box hlw">
+    <!-- Bicep SVG -->
+    <img
+      class="bicep1"
+      id="muscle"
+      onclick="setMuscle(0)"
+      src="{{url_for('static',filename='/figures/bicep1.jpg')}}"
+      alt=""
+    />
+
+    <h2>Biceps</h2>
+  </div>
+  <div class="box">
+    <!-- Tricep SVG -->
+    <img
+      class="tricep1"
+      id="muscle"
+      onclick="setMuscle(1)"
+      src="{{url_for('static',filename='/figures/tricep2.png')}}"
+      alt=""
+    />
+
+    <h2>Triceps</h2>
+  </div>
+</main>
+
+{%endblock%}

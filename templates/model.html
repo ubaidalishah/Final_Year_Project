@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Testing EMG Predictions</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Function to fetch data from Flask endpoint
+        function fetchData() {
+          $.ajax({
+            type: "POST",
+            url: "/predict", // Flask endpoint URL
+            contentType: "application/json",
+            success: function (response) {
+              console.log("Success response:", response); // Debugging: log success response
+              // Update HTML content with predictions or data from Flask
+              if (response.predictions) {
+                $("#predictionResult").text(
+                  "Predictions: " + response.predictions.join(", ")
+                );
+              } else {
+                $("#predictionResult").text("No predictions received.");
+              }
+            },
+            error: function (error) {
+              console.error("Error fetching data:", error);
+              $("#predictionResult").text(
+                "Error fetching data. See console for details."
+              );
+            },
+          });
+        }
+
+        // Call fetchData function on page load or as needed
+        fetchData();
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Testing EMG Predictions</h1>
+    <div id="predictionResult">
+      <!-- Predictions or data will be inserted here -->
+    </div>
+  </body>
+</html>

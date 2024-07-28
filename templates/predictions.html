@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EMG Prediction Result</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 50px;
+      }
+      #result {
+        font-size: 1.5em;
+        color: #333;
+      }
+    </style>
+    <script>
+      async function fetchPrediction() {
+        try {
+          const response = await fetch("http://localhost:5000/predict", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({}), // Sending an empty body as data is already sent
+          });
+
+          if (!response.ok) {
+            throw new Error("Failed to fetch prediction");
+          }
+
+          const data = await response.json();
+          if (data.error) {
+            throw new Error(data.error);
+          }
+
+         // Ensure prediction is treated as a number
+         const prediction = Number(data.prediction);
+          // not yet tested this is my logic to chek posture correction
+
+          if (data.prediction === 0) {
+            // document.getElementById("result").innerText = `Prediction: ${data.prediction}`;
+            document.getElementById(
+              "result"
+            ).innerText = `Your Posture is OK:YOU ARE DOING IT CORRECTLY`;
+          } else if (data.prediction === 1) {
+            document.getElementById(
+              "result"
+            ).innerText = `Your Posture is Not-OK:YOU ARE NOT DOING  IT CORRECTLY`;
+          }
+
+          //  this is the end of the logic
+        } catch (error) {
+          // document.getElementById("result").innerText = `Error: ${error.message}`;
+          document.getElementById("result").innerText = `Error: ${error.message}`;
+        }
+      }
+
+      window.onload = fetchPrediction;
+    </script>
+  </head>
+  <body>
+    <h1>EMG Prediction Result</h1>
+    <p id="result">Fetching prediction...</p>
+  </body>
+</html>
