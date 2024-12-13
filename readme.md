@@ -95,13 +95,6 @@ Access the app at `http://127.0.0.1:5000/`.
 ---
 
 
-## 🛠️ Future Enhancements
-
-- Add support for more muscle groups.
-- Integrate AI models for advanced posture detection.
-- Create a mobile-friendly version of the application.
-
----
 
 ## 📢 License
 
