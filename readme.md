@@ -95,13 +95,6 @@ Access the app at `http://127.0.0.1:5000/`.
 ---
 
 
-
-## 📢 License
-
-This project is licensed under the MIT License. See the `LICENSE` file for more details.
-
----
-
 ## 🔍 Acknowledgments
 
 Special thanks to the contributors and mentors who made this project possible.
